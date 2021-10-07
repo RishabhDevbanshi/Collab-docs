@@ -1,16 +1,18 @@
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 const Document = require('./Document');
 
-mongoose.connect("mongodb://localhost/google-docs-clone", {
+mongoose.connect("mongodb+srv://Rishabh:Rishabh@be-woke.nywxz.mongodb.net/be-woke?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
 
 const defaultValue = "";
 
-const io = require("socket.io")(3001, {
+const io = require("socket.io")(process.env.PORT || 3001, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://competent-wescoff-3582ca.netlify.app",
     methods: ["GET", "POST"],
   },
 });
